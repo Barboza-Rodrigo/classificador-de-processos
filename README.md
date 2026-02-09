@@ -1,55 +1,55 @@
-# Classificador de Processos por Pontuação (Python)
+# Process Classification by Scoring Rules (Python)
 
-Ferramenta em Python para validar pontuações numéricas e classificar processos
-com base em regras de negócio configuráveis.
+Python utility to validate numeric scores and automatically classify a process
+based on configurable business rules and thresholds.
 
-Este código pode ser adaptado para cenários como:
-- avaliação de processos
-- sistemas de aprovação
-- classificação por critérios
-- automação de decisões baseadas em regras
-
----
-
-## Visão Geral
-
-O script recebe uma lista de pontuações numéricas, valida os dados de entrada
-e classifica o processo conforme regras definidas.
-
-O resultado da classificação pode ser:
-- **Dados inválidos**
-- **Excelente**
-- **Aprovado**
-- **Reprovado**
-
-Todas as regras e limites são configuráveis.
+This project can be adapted for scenarios such as:
+- process evaluation
+- approval systems
+- quality scoring
+- rule-based decision automation
 
 ---
 
-## Regras de Negócio
+## Overview
 
-- Nenhuma pontuação pode ser negativa
-- Pontuações maiores ou iguais ao valor mínimo são consideradas aprovadas
-- A classificação final segue as regras:
-  - **Dados inválidos** → se existir pontuação negativa
-  - **Excelente** → quantidade de aprovados ≥ nível de excelência
-  - **Aprovado** → quantidade de aprovados ≥ mínimo exigido
-  - **Reprovado** → quando não atinge o mínimo
+The script receives a list of numeric scores, validates the input data and
+classifies the process according to predefined rules.
+
+The classification result can be:
+- **Invalid Data**
+- **Excellent**
+- **Approved**
+- **Rejected**
+
+All rules and thresholds are fully configurable.
 
 ---
 
-## Estrutura do Código
+## Business Rules
+
+- Scores must be non-negative values
+- Scores greater than or equal to the minimum threshold are considered approved
+- Final classification follows these rules:
+  - **Invalid Data** → if any score is negative
+  - **Excellent** → approved scores ≥ excellence threshold
+  - **Approved** → approved scores ≥ minimum required
+  - **Rejected** → does not meet minimum requirements
+
+---
+
+## Project Structure
 
 - `validar_pontuacoes(pontuacoes)`
 - `contar_aprovados(pontuacoes, minimo)`
 - `classificar_processo(pontuacoes, minimo, quant_aprovados, quant_excelente)`
 
-Cada função possui uma responsabilidade clara, facilitando manutenção e
-reutilização em outros sistemas.
+Each function has a single responsibility, making the code easy to maintain
+and reuse in other systems.
 
 ---
 
-## Exemplo de Uso
+## Example Usage
 
 ```python
 pontuacoes = [7, 8, 9, 6, 10]
